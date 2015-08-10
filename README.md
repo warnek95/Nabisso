@@ -1,3 +1,3 @@
-# nabissoServ
+# Nabisso
+Site de Streaming Africain
 
-a [Sails](http://sailsjs.org) application
