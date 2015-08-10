@@ -1,0 +1,47 @@
+ <br /><br /><br /><br /><br /><br /><br /><br />
+<div class="shen11">  <h3>Vos Résultats</h3> </div>
+        <br /><br/>   
+        
+        
+                <div class="container">
+                <% _.each(videos, function(video) { %>
+              <% if (video) { %>
+                  
+                    <div class="col-lg-2">
+                     <div class="hover panel ">
+                        <div class="front">
+                             <div class="pad pic ">
+                                  <img class="bords" src="<%= video.pictures[0].link %>" alt="logo front" />
+                             </div>
+                         </div>
+                       <div class="back ">
+                          <div class="pad bord">
+                        <br /> 
+                            <div class="tex" > <a href="#" > <b>Resumé :</b> </a> <b> <%= video.description.slice(0,255) %>
+                            <% if (video.description.length > 255) { %>
+                              ...
+                            <% } %></b>  <br /><a href="#" > <b>Realisteur :</b> </a><b><%= video.director %></b><a href="#" ><br/> <b>Acteurs :</b> </a> <b> <% if (video.actors) { len = video.actors.length; %>
+                                  <% _.each(video.actors, function(actor , index) {  %>
+                                  <%= actor %> <% if(index < len-1) { %> , <% } %>
+                                  <% }) %>
+                                  <% } %>  </b> <br /><a href="#" > <b>Genres :</b> </a><b>  <% if (video.genres) { len = video.genres.length; %>
+                              <% _.each(video.genres, function(genre , index) {  %>
+                              <%= genre %> <% if(index < len-1) { %> , <% } %>
+                              <% }) %>
+                              <% } %></b>  <br /></div>                                          </div>
+
+                              <div class="bouton" > <a href ="/video/show?vi=<%=video.id%>&vn=<%=video.title%>"> <img src="/images/catalog/play.png" class="" ></a>  </div> 
+                                              </div>
+                                            </div>  
+                                   <a href="/video/show?vi=<%=video.id%>&vn=<%=video.title%>"> <h4 class="se" ><%= video.title %></h4> </a>
+                               </div>      
+           <% } %>
+           <% }) %>
+
+           </div>    
+        
+
+          </div>
+          
+          
+          </div>

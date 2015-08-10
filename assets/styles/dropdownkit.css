@@ -1,0 +1,5 @@
+
+.demo-tabs > ul > li.ddkit-anchor .ddkit-trigger{margin-left: 35px;color:#000000;background:#;}
+.demo-tabs > ul > li.ddkit-anchor .ddkit-trigger:hover{text-decoration:none;background:#;}
+.demo-tabs > ul > li.ddkit-anchor.ddkit-opened .ddkit-trigger{color:#57BDFF;background:#;}
+.demo-tabs .ddkit-target{display:none;padding:10px;border:1px solid #fff;background:#;}

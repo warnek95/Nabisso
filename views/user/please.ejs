@@ -1,0 +1,52 @@
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div class="col-md-6 col-md-offset-4"><span>Vous devez être connecté pour effectuer cette action.</span></div>
+<br/>
+
+
+<div class="col-md-4 col-md-offset-5"><a href="/user/new"><button class="btn btn-primary" ng-disabled="vote.$invalid">Inscription</button></a></div>
+
+<br/>
+
+<div class="col-md-6 col-md-offset-5"><span>Connexion</span></div>
+
+
+<br/>
+
+<div ng-controller="LogInController"  ng-cloak>
+<form class="form" role="form" ng-submit="submitLogInForm()" name="logInForm">
+                     
+          <div class="form-group col-md-4 col-md-offset-4" > <div class="glyphicon glyphicon-password" aria-hidden="true"></div>  <input ng-model="pseudo" type="text" class="input-sm form-control" name="pseudo" id="pseudo" placeholder="Username" required></div>
+
+
+                     <div class="form-group col-md-4 col-md-offset-4"> <div class="glyphicon glyphicon-s" aria-hidden="true"></div> <input type="password" class="input-sm form-control" ng-model="mdp" name="mdp" id="mdp" placeholder="password" required> <div class="glyphicon glyphicon-password" aria-hidden="true"></div>
+
+<br/>
+<input type="hidden" ng-bind="_csrf='<%= _csrf %>'" name="_csrf" value="<%= _csrf %>" />
+                     <button type="submit" class="btn btn-danger btn-sm col-md-offset-4"> Connexion</button>
+                     </div>
+                     </form>
+                   </div>
+
+
+                     <!--  <a href=""> 
+                        <div class="glyphicon glyphicon-user" aria-hidden="true">
+                        </div> 
+                        <i class=""></i>
+                      </a>
+                        <ul style="display: none;" class="dropdown-menu bold">
+                           Connectez vous!
+                          <li><div class="form-group"> <div class="glyphicon glyphicon-password" aria-hidden="true"></div>  <input type="text" class="input-sm form-control" name="pseudo" id="pseudo" placeholder="Username"></div>
+                          </li>
+                          <br/>
+                                  <li> <div class="form-group"> <div class="glyphicon glyphicon-s" aria-hidden="true"></div> <input type="password" class="input-sm form-control" name="mdp" id="mdp" placeholder="password"> <div class="glyphicon glyphicon-password" aria-hidden="true"></div>
+                                  </li>
+                                   <br /> 
+                          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-play"></span> Connexion</button>
+                        </ul> -->

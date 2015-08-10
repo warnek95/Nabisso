@@ -1,0 +1,27 @@
+ <div class="container">
+
+      <form name="formulaireDynamique" class="form-horizontal col-lg-6" action="/video/fileBind" method="post" enctype="multipart/form-data">
+  <div class="form-group"  style="margin-top:90px;">
+    <legend>Ajouter une vidéo</legend>
+  </div>
+
+  <input type="hidden" name="VideoId" value="<%= VideoId %>">
+
+
+     <div class="row">
+    <div class="form-group">
+      <label for="text" class="col-lg-2 control-label">Fichier Video :</label>
+      <div class="col-lg-10">
+<input type="file" name="VideoFile">
+
+      </div>
+    </div>
+  </div>
+
+ <div class="form-group col-lg-12">
+    <div class="col-md-4"></div><div class="col-md-4"><button class="pull-right btn btn-default" id="ajouter">Ajouter</button></div>
+  </div>
+
+
+</form>
+</div>

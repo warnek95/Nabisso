@@ -1,0 +1,29 @@
+
+<br />
+<br />
+<br />
+     <div class="container" ng-controller="NewVideoController">
+
+      <form name="newVideo" class="form-horizontal col-lg-6" action="/video/fileBind" method="post" enctype="multipart/form-data" role="form">
+  <div class="form-group"  style="margin-top:90px;">
+    <legend>Modifier une vidéo</legend>
+  </div>
+
+    <input type="hidden" name="VideoId" value="<%= video._id %>">
+
+   <div class="row">
+    <div class="form-group">
+      <label for="text" class="col-lg-2 control-label">Nom du fichier vidéo (avec l'extension) :</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="FileName" name="FileName">
+      </div>
+    </div>
+  </div>
+  <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+  <div class="form-group col-lg-12">
+    <div class="col-md-4"></div><div class="col-md-4"><button class="pull-right btn btn-default">Modifier</button></div>
+  </div>
+
+
+</form>
+</div>

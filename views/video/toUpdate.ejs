@@ -1,0 +1,30 @@
+<br />
+<br />
+<br />
+ <div class="container">
+
+      <form name="formulaireDynamique" class="form-horizontal col-lg-6" action="/video/update" method="post" enctype="multipart/form-data">
+  <div class="form-group"  style="margin-top:90px;">
+    <legend>Video à modifier</legend>
+  </div>
+
+     <div class="row">
+    <div class="form-group">
+    <label for="select" class="col-lg-2 control-label">Nom de la vidéo: </label>
+      <div class="col-lg-10">
+        <select ng-init="Title = 1" id="select" class="form-control" name="Title" ng-model="Title">
+          <% _.each(videos, function(video) { %>
+          <option value="<%= video.id %>"   ><%= video.title %></option>
+          <% }) %>
+        </select>
+      </div>
+    </div>
+  </div>
+  <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+ <div class="form-group col-lg-12">
+    <div class="col-md-4"></div><div class="col-md-4"><button class="pull-right btn btn-default" >Modifier</button></div>
+  </div>
+
+
+</form>
+</div>

@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+  <head>
+    <title>Nabisso</title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!--
+        Stylesheets and Preprocessors
+        ==============================
+
+        You can always bring in CSS files manually with `<link>` tags, or asynchronously
+        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage
+        of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+        By default, stylesheets from your `assets/styles` folder are included
+        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+        are supported. In production, your styles will be minified and concatenated into
+        a single file.
+
+        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Change the order of your CSS files
+            + Import stylesheets from other directories
+            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+    -->
+    
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="/styles/bootstrap-theme.css">
+    <link rel="stylesheet" href="/styles/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/styles/bootstrap.css">
+    <link rel="stylesheet" href="/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/dropdownkit-site.css">
+    <link rel="stylesheet" href="/styles/dropdownkit.css">
+    <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/styles/jquery.mThumbnailScroller.css">
+    <link rel="stylesheet" href="/styles/normalize.css">
+    <link rel="stylesheet" href="/styles/stylestest.css">
+    <link rel="stylesheet" href="/styles/style2.css">
+    <link rel="stylesheet" href="/assets/lib_bower/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="/styles/angular-toastr.css">
+    <link href='/styles/Titillium_Web.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/styles/font-awesome-4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib_bower/bootstrap-star-rating/css/star-rating.min.css">
+    <!--STYLES END-->
+
+   
+    <!-- player styling -->
+    <link rel="stylesheet" type="text/css" href="/flowplayer/skin/minimalist.css">
+
+              <style type="text/css">
+         [class*="col"] { margin-bottom: 20px; }
+           img { width: 100%; }
+    
+         </style>
+              <style type="text/css">
+a
+{
+  text-decoration:none;
+}
+</style> 
+               
+               
+             
+    <style>
+    .content{
+      overflow: auto;
+      position: relative;
+      padding: 10px;
+      background-color: #fff;
+      margin: -35px;
+      width: 100%;
+      height: auto;
+      float: left;
+    }
+    .content li{
+      margin: 4px;
+      overflow: hidden;
+    }
+    .content li a{
+      display: inline-block;
+      border: 7px solid rgba());
+    }
+    .content.light, .content.light .mTSButton{ background-color: #c2beb2; }
+    .content.light li a{ border: 7px solid rgba(); }
+    #content-1, #content-2{
+      width: auto;
+      height: 600px;
+    }
+    #content-1 ul li:first-child{ margin-top: 20px; }
+    #content-1 ul li:last-child{ margin-bottom: 20px; }
+    #content-2{ padding: 55px 10px; }
+    #content-3{ background-color: transparent; }
+    #content-3 .mTSButton{
+      background-color: rgba(0,0,0,.7);
+      -moz-border-radius: 48px; -webkit-border-radius: 48px; border-radius: 48px;
+    }
+    #content-3 .mTSButtonLeft{ left: 5px; }
+    #content-3 .mTSButtonRight{ right: 5px; }
+    #content-5{ background-color: #444; }
+    #content-6{ background-color: transparent; }
+    #content-6 .mTSButton{
+      background-color: rgba(0,0,0,.7);
+      -moz-border-radius: 48px; -webkit-border-radius: 48px; border-radius: 48px;
+    }
+    #content-6 .mTSButtonLeft{ left: 5px; }
+    #content-6 .mTSButtonRight{ right: 5px; }
+
+
+  </style>
+  </head>
+  <body ng-app="app" ng-controller="MiscController" ng-cloak>
+
+ 
+  <div class="container header" id="bar" style="opacity: 1;" >
+   <div class="col-lg-12">
+    <div class="">
+  
+          <div class="row">
+         <div class="col-lg-2 shen2">
+                
+
+         <a href="/" > <img src="/images/catalog/nabiso.png" alt="" /></a>
+         </div>
+         <div class="shen4" >
+          <ul class="nav bold">
+                          <b>
+
+            <li class="dropdown">
+                <a href="/video/films">Films</a>
+                  <ul style="display: none;" class="dropdown-menu bold">
+                  <li><a href="##">DRAME</a></li>
+                  <li><a href="##">COMEDIE</a></li>
+                  <li><a href="##">ROMANCE</a></li>
+                    <li><a href="##">ANIMATION</a></li>
+
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="/video/series">Series</a>
+                  <ul style="display: none;" class="dropdown-menu bold">
+                    <li><a href="films.html">DRAME</a></li>
+                  <li><a href="##">COMEDIE</a></li>
+                  <li><a href="##">ROMANCE</a></li>
+                    <li><a href="##">ANIMATION</a></li>
+                </ul>
+            </li>
+            
+            <!-- <li class="dropdown">
+              <a href="films.html">DOCUMENTAIRES</a>
+                <ul style="display: none;" class="dropdown-menu bold">
+                  
+                </ul>
+            </li>
+            
+            <li class="films.html">
+              <a href="video.html">ORIGINAUX</a>
+                <ul style="display: none;" class="dropdown-menu bold">
+                  
+                </ul>
+            </li> -->
+          
+          <% if (session.User) { %>
+  <% if (session.User.status == "admin") { %>
+            <li class="dropdown">
+                <a href="#">Backoffice</a>
+                  <ul style="display: none;" class="dropdown-menu bold">
+                  <li><a href="/video/toUpdate">Modifier Videos</a></li>
+                  <li><a href="/video/new">Ajouter Videos</a></li>
+                </ul>
+            </li>
+            <% } %>
+       <% } %>
+          
+                  <li >
+                <a href="#">Documentaires</a>
+            </li>
+            <li >
+                <a href="#">Contenus Enfants</a>
+            </li>
+            <li >
+                <a href="#">Originaux</a>
+            </li>
+            
+            
+            
+            <div class="row shen7">
+              <div class="col-lg-2">
+                  <li class="shen15" >
+                  </li>
+                  <li class="dropdown">
+                    <% if (!session.authenticated) { %>
+                    <div ng-controller="LogInController"  ng-cloak>
+                    <form class="form" role="form" ng-submit="submitLogInForm()" name="logInForm">
+                      <a href=""> 
+                        <div class="glyphicon glyphicon-user" aria-hidden="true">
+                        </div> 
+                        <i class=""></i>
+                      </a>
+                        <ul style="display: none;" class="dropdown-menu bold">
+                           Connectez vous!
+                          <li><div class="form-group"> <div class="glyphicon glyphicon-password" aria-hidden="true"></div>  <input type="text" class="input-sm form-control" ng-model="pseudo" name="pseudo" id="pseudo" placeholder="Pseudo"></div>
+                          </li>
+                          <br/>
+                                  <li> <div class="form-group"> <div class="glyphicon glyphicon-s" aria-hidden="true"></div> <input type="password" class="input-sm form-control" ng-model="password" name="password" id="password" placeholder="password"> <div class="glyphicon glyphicon-password" aria-hidden="true"></div>
+                                  </li>
+                                   <br /> 
+                          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                          <input type="hidden" ng-bind="_csrf='<%= _csrf %>'" name="_csrf" value="<%= _csrf %>" />
+                          <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-play"></span> Connexion</button>
+                        </ul>
+                     </form>
+                   </div>
+                     <% } %>
+                  <% if (session.authenticated) { %>
+                    <a style ="color : #41A2ED;" href="/user/show"><%= session.User.pseudo %> </a>
+                  <% } %>
+                   </li>
+               </div>
+                <div class="col-lg-2 shen19">
+                  <form action="/video/search" method="post">
+                  <div data-ng-controller="CardController">
+                
+                  <input type="text" name="Search"  class="form-control" placeholder="Taper votre recherche" list="cards" 
+                          data-ng-model="card" />
+                        
+                        <datalist id="cards">
+                          <option data-ng-repeat="item in cardslist" value="{{item.title}}" />
+                        </datalist>
+                      </div>
+                      <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                      </form>
+                  </div>
+                  <div class="col-lg-3 ">
+                    <% if (session.authenticated) { %>
+                    <div ng-controller="LogOutController"  ng-cloak>
+                      <input type="hidden" ng-bind="_csrf='<%= _csrf %>'" name="_csrf" value="<%= _csrf %>" />
+                  <a href="" ng-click="submitLogOutForm()" style="margin-left:-105px; margin-bottom : 40px;"> <font color = "ffffff"><b >Déconnexion</b></font></div> <i class=""></i></a>
+                </div>
+                <% } %>
+                <% if (!session.authenticated) { %>
+                  <a href="/user/new"> <font color = "ffffff"><b > Inscription</b></font></div> <i class=""></i></a>
+                <% } %>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <%- body %>
+ <br />
+      <div class="shenblock">
+
+      </div>
+      <div class="container footer" style="clear: both; ">
+          <div class="row">
+            <div class="col-lg-4 shen12">
+          <IMG SRC="/images/catalog/nabiso.png" WIDTH=130  HEIGHT=50  >
+          </div>
+          <div class="col-lg-6 shen13">
+              <ul class=""><b>
+              <li class="current"><a href="#">A propos de nous</a></li>
+              <li><a href="#">Conditions générales</a></li>
+              <li><a href="#">Centre d'aides</a></li>
+              <li><a href="#">Cookies</a></li>
+              <li><a href="#">Nous contacter</a></li>
+              <li><a href="#">Blog</a></li></b>
+          </ul>
+            </div>
+            <div class="col-lg-2 shen14 ">
+               <b> © Copyright 2014 Nabisso Partners Limited . All rights reserved.</b>
+            </div>
+      <br />
+      
+          <div class="col-lg-4  ">
+              <ul class="shen82">
+              <li class=""><a href="#"><IMG SRC="/images/catalog/FB-f-Logo__blue_50.png" class="logos2"></a></li>
+              <li class=""><a href="#"><IMG SRC="/images/catalog/Instagram_Icon_Large.png" class="logos2"></a></li>
+              <li class=""><a href="#"><IMG SRC="/images/catalog/TwitterLogo.png" class="logos2"></a></li>
+              <li class=""><a href="#"><IMG SRC="/images/catalog/Pinterest_Badge_Red.png" class="logos2"></a></li>
+              </ul>
+            </div>
+   
+       
+      </div>
+      
+
+ <!-- Bootstrap core JavaScript
+    ================================================== -->
+
+  <!-- plugin script -->
+  
+
+    <!--
+        Client-side Templates
+        ========================
+
+        HTML templates are important prerequisites of modern, rich client applications.
+        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
+        that you load these templates client-side.
+
+        By default, your Gruntfile is configured to automatically load and precompile
+        client-side JST templates in your `assets/templates` folder, then
+        include them here automatically (between TEMPLATES and TEMPLATES END).
+
+        To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Import templates from other directories
+            + Use a different template engine (handlebars, jade, dust, etc.)
+            + Internationalize your client-side templates using a server-side
+              stringfile before they're served.
+    -->
+
+    <!--TEMPLATES-->
+
+    <!--TEMPLATES END-->
+
+
+    <!--
+
+      Client-side Javascript
+      ========================
+
+      You can always bring in JS files manually with `script` tags, or asynchronously
+      on the client using a solution like AMD (RequireJS).  Or, if you like, you can
+      take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+      By default, files in your `assets/js` folder are included here
+      automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
+      CoffeeScript (.coffee) are supported. In production, your scripts will be minified
+      and concatenated into a single file.
+
+      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+      For example, here are a few things you could do:
+
+          + Change the order of your scripts
+          + Import scripts from other directories
+          + Use a different preprocessor, like TypeScript
+
+    -->
+
+    <!--SCRIPTS-->
+    <script src="/js/dependencies/jquery.min.js"></script>
+    <script src="/js/dependencies/jquery2.js"></script>
+    <script src="/js/dependencies/bootstrap.js"></script>
+    <script src="/js/dependencies/custom.js"></script>
+    <script src="/js/dependencies/jquery.dropdownkit.1.0.js"></script>
+    <script src="/js/dependencies/jquery.dropdownkit.1.0.min.js"></script>
+    <script src="/js/dependencies/jquery.easing.1.3.min.js"></script>
+    <script src="/js/dependencies/jquery.mThumbnailScroller.js"></script>
+    <script src="/js/dependencies/jquery.ui.totop.js"></script>
+    <script src="/js/dependencies/jquery.scrollto-1.4.3.1.js"></script>
+    <script src="/js/dependencies/jquery.supertoc.min.js"></script>
+    <script src="/js/dependencies/custom.js"></script>
+    <script src="/js/angular/assets/lib_bower/angular/angular.min.js"></script>
+    <script src="/js/angular/angular-route.js"></script>
+    <script src="/js/angular/angular-cookies.js"></script>
+
+    <script src="/js/angular/assets/lib_bower/angular-resource/angular-resource.min.js"></script>
+    <script src="/js/angular/assets/lib_bower/angular/angular-locale_fr-fr.js"></script>
+    <script src="/assets/lib_bower/angular-animate/angular-animate.min.js"></script>
+    <script src="/assets/lib_bower/angular-aria/angular-aria.min.js"></script>
+    <script src="/../lib_bower/angular-strap/dist/angular-strap.min.js"></script>
+    <script src="/../lib_bower/angular-strap/dist/angular-strap.tpl.min.js"></script>
+    <script src="/../lib_bower/bootstrap/js/tooltip.js"></script>
+    <script src="/../lib_bower/bootstrap/js/popover.js"></script>
+    <script type="text/javascript" src="/../lib_bower/bootstrap-filestyle/src/bootstrap-filestyle.js"> </script>
+
+    <!-- Angular Material Javascript using RawGit to load directly from `bower-material/master` -->
+    <script src="/assets/lib_bower/angular-material/angular-material.js"></script>
+    <script src="/js/angular/application.js"></script>
+    <script src="/js/angular/controllers.js"></script>
+     <script src="/js/angular/angular-toastr.js"></script>
+    <script src="/js/angular/angular-toastr.tpls.js"></script>
+    <script src="/js/angular/compareTo.module.js"></script>
+    <script src="/js/angular/SignUpModule.js"></script>
+    <script src="/js/angular/LogModule.js"></script>
+    <script src="/js/angular/NewVideoModule.js"></script>
+    <script src="/js/angular/SignUpController.js"></script>
+    <script src="/js/angular/NewVideoController.js"></script>
+    <script src="/js/angular/EditUserModule.js"></script>
+             <!-- flowplayer.js -->
+         <script type="text/javascript" src="/flowplayer/flowplayer.min.js"></script>
+         <script src="/lib_bower/bootstrap-star-rating/js/star-rating.min.js"></script>
+    <script src="/js/react/react.js"></script>
+    <script src="/assets/lib_bower/ngReact/ngReact.min.js"></script>
+    <script src="/js/angular/TchatModule.js"></script>
+
+    <!--SCRIPTS END-->
+<script type="text/javascript">
+      $(window).load(function(){
+
+        // TOC
+        $( '#page .inner' ).supertoc({
+          headings:"h1, h2"
+        });
+        
+        // To top plugin
+        $().UItoTop({ scrollSpeed:200 });
+        
+        // Dropdown Kit
+        if ($.fn.dropdownkit){
+        
+          // Dropdowns
+          $('.demo-dropdowns.standard .demo-dropdown').dropdownkit({
+            group:'group-dropdowns'
+          });
+          
+          // Dropdowns > Autres positions
+          $('.demo-dropdowns.other .demo-dropdown.one').dropdownkit({
+            group:'group-dropdowns',
+            position:'top',
+            alignment:1
+          });
+          $('.demo-dropdowns.other .demo-dropdown.two').dropdownkit({
+            group:'group-dropdowns',
+            position:'right',
+            alignment:2
+          });
+          $('.demo-dropdowns.other .demo-dropdown.three').dropdownkit({
+            group:'group-dropdowns',
+            position:'bottom',
+            alignment:1
+          });
+          $('.demo-dropdowns.other .demo-dropdown.four').dropdownkit({
+            group:'group-dropdowns',
+            position:'left',
+            alignment:2
+          });
+          
+          // Dropdowns > Avec marges
+          $('.demo-dropdowns.margins .demo-dropdown').dropdownkit({
+            group:'group-dropdowns',
+            position:'right',
+            xmargin:10,
+            ymargin:10
+          });
+          
+          // Dropdowns > Avec callbacks
+          $('.demo-dropdowns.callbacks .demo-dropdown').dropdownkit({
+            group:'group-dropdowns',
+            incallback:function(){
+              this.target.css('background', 'red');
+            },
+            outcallback:function(){
+              this.target.css('background', 'blue');
+            }
+          });
+          
+          // Combobox
+          $('.demo-combobox.one').dropdownkit({
+            group:'group-combobox'
+          });
+          
+          // Toggle
+          $('.demo-toggle').dropdownkit({
+            group:'group-toggler',
+            bodyclick:false,
+            autoclose:false,
+            infx:'slidedown',
+            inspeed:400,
+            outfx:'slideup',
+            opened:true
+          });
+          
+          // Tabs
+          $('.demo-tabs .ddkit-anchor').dropdownkit({
+            group:'group-innertabs',
+            bodyclick:false,
+            autoclose:false,
+            nopos:true,
+            toggle:false
+          });
+          
+          // Tooltips
+          $('.demo-tooltip.standard').dropdownkit({
+            group:'demo-tooltip',
+            hover:true
+          });
+          
+          $('.demo-tooltip.closebutton').dropdownkit({
+            group:'demo-tooltip',
+            hover:true,
+            closebtn:true
+          });
+          
+          // Special usage
+          $('.demo-dropdown.special.one').dropdownkit({
+            closemates:false
+          });
+          $('.demo-dropdown.special.two').dropdownkit({
+            closemates:false,
+            targetrel:'#IamAnExternalTarget'
+          });
+          $('.demo-dropdown.special.cloned').dropdownkit({
+            group:'group-withclonedtaget',
+            position:'right',
+            alignment:1,
+            targetclone:'#IamAClonedTarget',
+            hover:true
+          });
+          $('.demo-combobox.easing').dropdownkit({
+            group:'group-combobox',
+            infx:'slidedown',
+            inspeed:1000,
+            ineasing:'easeOutBounce'
+          });
+        }
+      }); 
+    </script>
+  <script>
+    (function($){
+      $(window).load(function(){
+        
+        $("#content-1").mThumbnailScroller({
+          axis:"y",
+          type:"hover-precise"
+        });
+        
+        $("#content-2").mThumbnailScroller({
+          axis:"y",
+          type:"click-thumb",
+          theme:"buttons-out"
+        });
+        
+        $("#content-3").mThumbnailScroller({
+          type:"click-25",
+        });
+        
+        $("#content-4").mThumbnailScroller({
+          theme:"hover-classic"
+        });
+        
+        $("#content-5").mThumbnailScroller({
+          type:"hover-precise"
+        });
+        
+        $("#content-6").mThumbnailScroller({
+          type:"click-25",
+        });
+        
+      });
+    })(jQuery);
+  </script>
+
+     <script type="text/javascript">
+           $(document).ready(function(){
+            // set up hover panels
+            // although this can be done without JavaScript, we've attached these events
+            // because it causes the hover to be triggered when the element is tapped on a touch device
+            $('.hover').hover(function(){
+                $(this).addClass('flip');
+            },function(){
+                $(this).removeClass('flip');
+            });
+        });
+        </script>
+
+          <script type="text/javascript">
+      $(document).scroll(function()
+      {
+        if($(document).scrollTop()>300)
+          $("#bar").stop().animate({"opacity":"1"},500);
+        if($(document).scrollTop()<300)
+          $("#bar").stop().animate({"opacity":"0.5"},500);
+      });
+    </script>
+        
+<script>
+
+
+$(document).ready(function() {
+  (function() {
+    //settings
+    var fadeSpeed = 200, fadeTo = 0.5, topDistance = 30;
+    var topbarME = function() { $('#uberbar').fadeTo(fadeSpeed,1); }, topbarML = function() { $('#uberbar').fadeTo(fadeSpeed,fadeTo); };
+    var inside = false;
+    //do
+    $(window).scroll(function() {
+      position = $(window).scrollTop();
+      if(position > topDistance && !inside) {
+        //add events
+        topbarML();
+        $('#uberbar').bind('mouseenter',topbarME);
+        $('#uberbar').bind('mouseleave',topbarML);
+        inside = true;
+      }
+      else if (position < topDistance){
+        topbarME();
+        $('#uberbar').unbind('mouseenter',topbarME);
+        $('#uberbar').unbind('mouseleave',topbarML);
+        inside = false;
+      }
+    });
+  })();
+});
+
+</script>
+      <script>
+      $(document).ready(function() {
+        $('.nav-toggle').click(function(){
+          //get collapse content selector
+          var collapse_content_selector = $(this).attr('href');         
+          
+          //make the collapse content to be shown or hide
+          var toggle_switch = $(this);
+          $(collapse_content_selector).toggle(function(){
+            if($(this).css('display')=='none'){
+              toggle_switch.html('Regarder les commentaires');//change the button label to be 'Show'
+            }else{
+              toggle_switch.html('Masquer les commentaires');//change the button label to be 'Hide'
+            }
+          });
+        });
+        
+      }); 
+    </script>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover(); 
+});
+</script>
+
+   
+  </body>
+</html>

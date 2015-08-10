@@ -1,0 +1,248 @@
+<br /> <br /> <br /><br /><br />    
+
+
+        <div class="col-md-4"></div><div class="col-md-6"></div><hr class="">
+<div class="container target">
+    <div class="row">
+        <div class="col-sm-10">
+             <h1 class="">Nom</h1>
+         <!-- 
+          <button type="button" class="btn btn-warning">Abonnements</button>  <button type="button" class="btn btn-danger">Assistance </button>
+<br> -->
+        </div>
+     <!--  <div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="http://www.rlsandbox.com/img/profile.jpg"></a>
+
+        </div> -->
+    </div>
+  <br>
+    <div class="row">
+        <div class="col-sm-3">
+            <!--left col-->
+           
+           <div class="panel panel-default">
+             <div class="panel-heading">Informations personnelles
+
+                </div>
+                <% if (session.passwordInUseNotValid) { %>
+                <span class="has-error">Le champ mot de passe actuel n'est pas valide</span>
+                <% } %>
+                <form action="/user/edit" ng-controller="EditUserController" method="post" name="edit">
+                  <div class="panel-body ">
+                  <button type="button" class="btn btn-warning" ng-click="togglePassword()">Modifier mot de passe</button>
+                </div>
+
+                <div class="panel-body" >
+          <label>Nom</label>
+          <div class="input-group">
+            <input type="text" class="form-control" name="LastName" value="<%= user.LastName %>">
+            <span class="input-group-addon danger"><span class="glyphicon glyphicon-user"></span></span>
+        </div>
+        </div>
+
+        <div class="panel-body" >
+          <label>Prénom</label>
+          <div class="input-group">
+            <input type="text" class="form-control" name="Name" value="<%= user.Name %>">
+            <span class="input-group-addon danger"><span class="glyphicon glyphicon-user"></span></span>
+        </div>
+        </div>
+
+                <div class="panel-body" ng-hide="password">
+          <label>Mot de passe actuel</label>
+          <div class="input-group">
+            <input type="password" class="form-control" name="passwordUsed" >
+            <span class="input-group-addon danger"><span class="glyphicon glyphicon-user"></span></span>
+        </div>
+        </div>
+
+                <div class="panel-body" ng-hide="password"
+        ng-class="{'has-error':edit.newPassword.$invalid &&
+                              edit.newPassword.$dirty }">
+          <label>Nouveau mot de passe</label>
+          <div class="input-group">
+            <input type="password" class="form-control" placeholder="Au moins 6 caractères" name="newPassword" ng-model="newPassword" ng-minlength="6" compare-to="confirmPassword">
+            <span class="input-group-addon danger"><span class="glyphicon glyphicon-user"></span></span>
+        </div>
+          <span class="help-block has-error" ng-if="edit.newPassword.$dirty">
+            <span ng-show="edit.newPassword.$error.minlength">Le mot de passe doit avoir au moins 6 caractères.</span>
+          </span>
+        </div>
+
+        <div class="panel-body" ng-hide="password">
+          <label>Confirmation du nouveau mot de passe</label>
+          <div class="input-group">
+            <input type="password" class="form-control" placeholder="Confirmation" name="confirmPassword" ng-model="confirmPassword">
+            <span class="input-group-addon danger"><span class="glyphicon glyphicon-user"></span></span>
+        </div>
+          <span class="help-block has-error" ng-if="edit.confirmPassword.$dirty">
+            <span ng-show="edit.newPassword.$error.compareTo">Les mots de passes doivent être les mêmes.</span>
+            <span ng-show="edit.confirmPassword.$error.minlength">Le mot de passe doit avoir au moins 6 caractères.</span>
+          </span>
+        </div>
+            
+                <div class="panel-body">
+                        <button type="submit" class="btn btn-primary" ng-disabled="edit.$invalid">Modifier</button>
+                </div>
+
+                </form>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading"> Choisissez un mode de paiement<i class="fa fa-link fa-1x"></i>
+
+                </div>
+                <div class="panel-body"><a href="http://bootply.com" class=""></a>
+         <div class="col-lg-4"><img src="/images/catalog/visa.png" /></div>
+                  <div class="col-lg-4"><img src="/images/catalog/card.ico" /></div>
+                                   <div class="col-lg-4"><img src="/images/catalog/wari.jpg" /></div>
+
+                 <div class="col-lg-9"><img src="/images/catalog/pay.jpg" /></div>
+
+
+                </div>
+            </div>
+          
+            
+           <!--  <div class="panel panel-default">
+                <div class="panel-heading">Réseaux sociaux</div>
+                <div class="panel-body">    <i class="fa fa-facebook fa-2x"></i>  <i class="fa fa-github fa-2x"></i> 
+                    <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i>  <i class="fa fa-google-plus fa-2x"></i>
+
+                </div>
+            </div> -->
+        </div>
+        <!--/col-3-->
+        <div class="col-sm-9" contenteditable="false" style="">
+            <div class="panel panel-default">
+                <div class="panel-heading">A propos de</div>
+                <div class="panel-body"> Description sur moi.
+
+                </div>
+            </div>
+            <div class="panel panel-default target">
+                <div class="panel-heading" contenteditable="false">Films Favoris</div>
+                <div class="panel-body">
+                  <div class="row">
+                 
+                 <% _.each(matched, function(video) { %>
+              <% if (video) { %>
+              <div class="col-lg-2">
+                <a href="/video/show?vi=<%=video.videoId%>&vn=<%=video.title%>">
+                  <img class="bords" src="<%= video.link %>" alt="logo front" />
+                </a>
+              </div>  
+           <% } %>
+           <% }) %> 
+           
+            </div>
+                 
+        </div>
+              
+    </div>
+           <div class="panel panel-default">
+                <div class="panel-heading">Vos préférences</div>
+                <div class="panel-body"> Préférences.
+
+                </div>
+</div></div>
+
+
+            <div id="push"></div>
+        </div>
+     
+        
+        <!-- End Quantcast tag -->
+        <div id="completeLoginModal" class="modal hide">
+            <div class="modal-header">
+                <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+                 <h3>Do you want to proceed?</h3>
+            </div>
+            <div class="modal-body">
+                <p>This page must be refreshed to complete your login.</p>
+                <p>You will lose any unsaved work once the page is refreshed.</p>
+                <br><br>
+                <p>Click "No" to cancel the login process.</p>
+                <p>Click "Yes" to continue...</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#" id="btnYes" class="btn danger">Yes, complete login</a>
+              <a href="#" data-dismiss="modal" aria-hidden="true" class="btn secondary">No</a>
+            </div>
+        </div>
+        <div id="forgotPasswordModal" class="modal hide">
+            <div class="modal-header">
+                <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+                 <h3>Password Lookup</h3>
+            </div>
+            <div class="modal-body">
+                  <form class="form form-horizontal" id="formForgotPassword">    
+                  <div class="control-group">
+                      <label class="control-label" for="inputEmail">Email</label>
+                      <div class="controls">
+                          <input name="_csrf" id="token" type="hidden" value="CkMEALL0JBMf5KSrOvu9izzMXCXtFQ/Hs6QUY=">
+                          <input type="email" name="email" id="inputEmail" placeholder="you@youremail.com" required="">
+                          <span class="help-block"><small>Enter the email address you used to sign-up.</small></span>
+                      </div>
+                  </div>
+                  </form>
+            </div>
+            <div class="modal-footer pull-center">
+                <a href="#" data-dismiss="modal" aria-hidden="true" class="btn">Cancel</a>  
+                <a href="#" data-dismiss="modal" id="btnForgotPassword" class="btn btn-success">Reset Password</a>
+            </div>
+            
+        </div>
+        <div id="upgradeModal" class="modal hide">
+            <div class="modal-header">
+                <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+                 <h4>Would you like to upgrade?</h4>
+            </div>
+            <div class="modal-body">
+                  <p class="text-center"><strong></strong></p>
+                  <h1 class="text-center">$4<small>/mo</small></h1>
+                  <p class="text-center"><small>Unlimited plys. Unlimited downloads. No Ads.</small></p>
+                  <p class="text-center"><img src="/assets/i_visa.png" width="50" alt="visa"> <img src="/assets/i_mc.png" width="50" alt="mastercard"> <img src="/assets/i_amex.png" width="50" alt="amex"> <img src="/assets/i_discover.png" width="50" alt="discover"> <img src="/assets/i_paypal.png" width="50" alt="paypal"></p>
+            </div>
+            <div class="modal-footer pull-center">
+                <a href="/upgrade" class="btn btn-block btn-huge btn-success"><strong>Upgrade Now</strong></a>
+                <a href="#" data-dismiss="modal" class="btn btn-block btn-huge">No Thanks, Maybe Later</a>
+            </div>
+        </div>
+        <div id="contactModal" class="modal hide">
+            <div class="modal-header">
+                <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+                <h3>Contact Us</h3>
+                <p>suggestions, questions or feedback</p>
+            </div>
+            <div class="modal-body">
+                  <form class="form form-horizontal" id="formContact">
+                      <input name="_csrf" id="token" type="hidden" value="CkMEALL0JBMf5KSrOvu9izzMXCXtFQ/Hs6QUY=">
+                      <div class="control-group">
+                          <label class="control-label" for="inputSender">Name</label>
+                          <div class="controls">
+                              <input type="text" name="sender" id="inputSender" class="input-large" placeholder="Your name">
+                          </div>
+                      </div>
+                      <div class="control-group">
+                          <label class="control-label" for="inputMessage">Message</label>
+                          <div class="controls">
+                              <textarea name="notes" rows="5" id="inputMessage" class="input-large" placeholder="Type your message here"></textarea>
+                          </div>
+                      </div>
+                      <div class="control-group">
+                          <label class="control-label" for="inputEmail">Email</label>
+                          <div class="controls">
+                              <input type="text" name="email" id="inputEmail" class="input-large" placeholder="you@youremail.com (for reply)" required="">
+                          </div>
+                      </div>
+                  </form>
+            </div>
+            <div class="modal-footer pull-center">
+                <a href="#" data-dismiss="modal" aria-hidden="true" class="btn">Cancel</a>     
+                <a href="#" data-dismiss="modal" aria-hidden="true" id="btnContact" role="button" class="btn btn-success">Send</a>
+            </div>
+        </div>
+        
+        
+        
+    
+</div>

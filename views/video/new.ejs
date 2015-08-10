@@ -1,0 +1,108 @@
+
+<br />
+<br />
+<br />
+     <div class="container" ng-controller="NewVideoController">
+
+      <form name="newVideo" class="form-horizontal col-lg-6" action="/video/create" method="post" enctype="multipart/form-data" role="form" novalidate>
+  <div class="form-group"  style="margin-top:90px;">
+    <legend>Ajouter une vidéo</legend>
+  </div>
+
+     <div class="row">
+    <div class="form-group">
+    <label for="select" class="col-lg-2 control-label">Type de vidéo: </label>
+      <div class="col-lg-10">
+        <select ng-init="Type = 1" id="select" class="form-control" name="Type" ng-model="Type">
+          <option value="Film">Film</option>
+          <option value="Serie">Serie</option>
+          <option value="Documentaire">Documentaire</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="control-group form-group col-md-12">
+    <label for="select" class="col-lg-2 control-label">Acteurs:</label> <div class="col-md-5"><input type="button" ng-click="actors = actors+1" id="actors" class="form-control" value="Ajouter un Acteur"/></div> <div class="col-md-5">
+      <input type="button" ng-click="actors = actors-1" id="actors" class="form-control" value="Supprimer un Acteur" ng-show="actors > 0"/></div>
+        <br /><br />
+        <div ng-repeat="i in getActorsNumber(actors) track by $index">
+          <div class="col-md-2"></div><div class="col-md-10">
+          <input name="Actors" type="text" placeholder="Nom de l'acteur" class="form-control" required/></div> 
+          <br />
+          <br />
+
+        </div>
+        </div>
+
+<div class="control-group form-group col-md-12">
+    <label for="select" class="col-lg-2 control-label">Genres:</label>   <div class="col-md-5"><input type="button" ng-click="genres = genres+1" id="genre" class="form-control" value="Ajouter un Genre"/></div> <div class="col-md-5">
+      <input type="button" ng-click="genres = genres-1" id="actors" class="form-control" value="Supprimer un Genre" ng-show="genres > 0" /></div>
+        <br /><br />
+        <div ng-repeat="i in getGenresNumber(genres) track by $index">
+          <div class="col-md-2"></div> <div class="col-md-10"><select ng-init="Genres = 1" id="select" class="form-control" name="Genres" ng-model="Genres" required>
+          <% _.each(genres, function(genre) { %>
+          <option value="<%= genre.wording %>"   ><%= genre.wording %></option>
+          <% }) %>
+        </select>
+      </div>
+          <br />
+          <br />
+ </div>
+        </div>
+
+  <div class="row">
+    <div class="form-group">
+      <label for="text" class="col-lg-2 control-label">Nom du Producteur :</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="DirectorName" name="Director" required/>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <label for="text" class="col-lg-2 control-label">Titre :</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" name="Title" required/>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <label for="textarea" class="col-lg-2 control-label">Descriptions:</label>
+      <div class="col-lg-10">
+        <input type="textarea" class="form-control" id="Description" name="Description" required/>
+      </div>
+    </div>
+  </div>
+
+ <div class="row">
+  <div class="form-group" ng-class="{'has-error': newVideo.ReleaseDate.$invalid}">
+      <label for="text" class="col-lg-2 control-label">Date: </label>
+      <div class="col-lg-10">
+    <input type="text" class="form-control" ng-model="selectedDate" name="ReleaseDate" data-date-format="yyyy/MM/dd" bs-datepicker required/>
+  </div>
+  </div>
+  </div>
+
+     <div class="row">
+    <div class="form-group">
+      <label for="text" class="col-lg-2 control-label">Image:</label>
+      <div class="col-lg-10">
+<input type="file" name="Pictures" class="filestyle" data-buttonText="Trouver l'image" required/>
+
+      </div>
+    </div>
+  </div>
+
+  <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+
+  <div class="form-group col-lg-12">
+    <div class="col-md-4"></div><div class="col-md-4"><button class="pull-right btn btn-default" id="ajouter" ng-disabled="newVideo.$invalid">Ajouter</button></div>
+  </div>
+
+
+</form>
+</div>

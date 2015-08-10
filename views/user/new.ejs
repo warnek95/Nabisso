@@ -1,0 +1,135 @@
+<br />
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+
+  <% if (errors.errPass) { %>
+    <input type="hidden" ng-bind="errPass=<%= errors.errPass %>">
+  <% } %>
+
+  <% if (errors.errEmail) { %>
+    <input type="hidden" ng-bind="errEmail=<%= errors.errEmail %>">
+  <% } %>
+
+  <% if (errors.errPseudo) { %>
+    <input type="hidden" ng-bind="errPseudo=<%= errors.errPseudo %>">
+  <% } %>
+
+
+<div class="container" >
+	<form method="post" action="/user/create" name="signup" class="form-signin" id="sign-up-form">
+	<div class="row">
+		<center><h2>Inscrivez vous</h2></center>
+	</div>
+    
+    <div class="row" >
+
+    	
+
+        <div class="form-group col-sm-offset-4 col-sm-4 control-group"
+        ng-class="{'has-error':signup.LastName.$invalid &&
+                              signup.LastName.$dirty}">
+          <label>Nom</label>
+          <div class="input-group">
+	          <input type="text" class="form-control" placeholder="Exemple : Tesla" name="LastName" ng-model="LastName" ng-maxlength="50" required>
+	          <span class="input-group-addon danger"><span class="glyphicon glyphicon-user"></span></span>
+	      </div>
+          <span class="help-block has-error" ng-if="signup.LastName.$dirty">
+            <span ng-show="signup.LastName.$error.required">Le nom est requis.</span>
+            <span ng-show="signup.LastName.$error.maxlength">Le nom doit avoir au plus 50 caractères.</span>
+          </span>
+        </div>
+
+        <div class="form-group col-sm-offset-4 col-sm-4 control-group"
+        ng-class="{'has-error':signup.Name.$invalid &&
+                              signup.Name.$dirty}">
+          <label>Prenom</label>
+          <div class="input-group">
+	          <input type="text" class="form-control" placeholder="Exemple : Nikola" name="Name" ng-model="Name" ng-maxlength="50" required>
+	          <span class="input-group-addon danger"><span class="glyphicon glyphicon-user"></span></span>
+	      </div>
+          <span class="help-block has-error" ng-if="signup.Name.$dirty">
+            <span ng-show="signup.Name.$error.required">Le prenom est requis.</span>
+            <span ng-show="signup.Name.$error.maxlength">Le prenom doit avoir au plus 50 caractères.</span>
+          </span>
+        </div>
+
+        <div class="form-group col-sm-offset-4 col-sm-4 control-group"
+        ng-class="{'has-error':signup.Pseudo.$invalid &&
+                              signup.Pseudo.$dirty || errPseudo}">
+          <label>Pseudo</label>
+          <div class="input-group">
+	          <input type="text" class="form-control" placeholder="Exemple : niktes" name="Pseudo" ng-model="Pseudo" ng-maxlength="50" required>
+	          <span class="input-group-addon danger"><span class="glyphicon glyphicon-user"></span></span>
+	      </div>
+        <span ng-show="errPseudo">Le pseudo est déjà utilisé.</span>
+          <span class="help-block has-error" ng-if="signup.Pseudo.$dirty">
+            <span ng-show="signup.Pseudo.$error.required">Le pseudo est requis.</span>
+            <span ng-show="signup.Pseudo.$error.maxlength">Le pseudo doit avoir au plus 50 caractères.</span>
+          </span>
+        </div>
+
+        <div class="form-group col-sm-offset-4 col-sm-4 control-group"
+        ng-class="{'has-error':signup.mdp.$invalid &&
+                              signup.mdp.$dirty || errPass}">
+          <label>Mot de passe</label>
+          <div class="input-group">
+	          <input type="password" class="form-control" placeholder="Au moins 6 caractères" name="mdp" ng-model="mdp" required ng-minlength="6" compare-to="mdp2">
+	          <span class="input-group-addon danger"><span class="glyphicon glyphicon-user"></span></span>
+	      </div>
+          <span class="help-block has-error" ng-if="signup.mdp.$dirty">
+            <span ng-show="signup.mdp.$error.required">Le mot de passe est requis.</span>
+            <span ng-show="signup.mdp.$error.minlength">Le mot de passe doit avoir au moins 6 caractères.</span>
+          </span>
+        </div>
+
+        <div class="form-group col-sm-offset-4 col-sm-4 control-group">
+          <label>Confirmation du mot de passe</label>
+          <div class="input-group">
+	          <input type="password" class="form-control" placeholder="Remettez votre mot de passe" name="mdp2" ng-model="mdp2" required>
+	          <span class="input-group-addon danger"><span class="glyphicon glyphicon-user"></span></span>
+	      </div>
+          <span class="help-block has-error" ng-if="signup.mdp2.$dirty || errPass">
+            <span ng-show="signup.mdp.$error.compareTo || errPass">Les mots de passes doivent être les mêmes.</span>
+            <span ng-show="signup.mdp2.$error.minlength">Le mot de passe doit avoir au moins 6 caractères.</span>
+          </span>
+        </div>
+
+        <div class="form-group col-sm-offset-4 col-sm-4 control-group"
+        ng-class="{'has-error':signup.Email.$invalid &&
+                              signup.Email.$dirty || errEmail}">
+          <label>Adresse email </label>
+          <div class="input-group">
+	          <input type="email" class="form-control" placeholder="nikola@tesla.com" name="Email" ng-model="Email" required>
+	          <span class="input-group-addon danger"><span class="glyphicon glyphicon-envelope"></span></span>
+	      </div>
+          <span ng-show="errEmail">L'adresse email est déjà utilisée.</span>
+          <span class="help-block has-error" ng-if="signup.Email.$dirty">
+            <span ng-show="signup.Email.$error.required">L'adresse email est requise.</span>
+            <span ng-show="signup.Email.$error.email">L'adresse email n'est pas valide.</span>
+          </span>
+        </div>
+
+        <div class="col-sm-offset-4 col-sm-4">
+
+            	<div class="form-group">
+        		
+               <button class="btn btn-primary btn-lg btn-block" type="submit" ng-disabled="signup.$invalid">
+        <span >Inscription</span>
+      </button>
+                <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+           
+        </div>
+    </div>
+</div>
+ </form>
+</div>
+
+
+

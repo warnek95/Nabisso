@@ -1,0 +1,1 @@
+angular.module('NewVideoModule', ['toastr', 'ngAnimate', 'mgcrea.ngStrap']);

@@ -1,0 +1,96 @@
+		MONGODB
+
+`Users` ( 
+  `Id` int(11) NOT NULL AUTO_INCREMENT, 
+  `Name` varchar(25) DEFAULT NULL, 
+  `LastName` varchar(25) DEFAULT NULL, 
+  `Email` varchar(25) DEFAULT NULL, 
+  `DateBirth` date DEFAULT NULL, 
+  `Online` tinyint(1) DEFAULT NULL, 
+  `Status` varchar(25) DEFAULT NULL, (user , subscriber , admin , director)
+  `Pseudo` varchar(25) DEFAULT NULL, 
+  `Password` varchar(255) DEFAULT NULL, 
+  `Viewed` longtext, 
+  `Voted` longtext, 
+  `Favorites` longtext
+)
+
+
+`Video` ( 
+  `Id` int(11) NOT NULL AUTO_INCREMENT, 
+  `Title` varchar(100) NOT NULL, 
+  `ReleaseDate` date NOT NULL, 
+  `Description` varchar(1200) NOT NULL, 
+  `Season` int(11) DEFAULT NULL, 
+  `Episode` int(11) DEFAULT NULL, 
+  `SeriesTitle` varchar(100) DEFAULT NULL, 
+  `Link` varchar(255) NOT NULL, 
+  `Views` int(11) DEFAULT '0', 
+  `Rating` int(11) DEFAULT '0', 
+  `NbRating` int(11) DEFAULT '0', 
+  `Id_Types` int(11) NOT NULL, 
+  `Id_Director` int(11) DEFAULT NULL, 
+  `Uploaded` smallint(6) DEFAULT '0'
+	`Actors` ( 
+  		`Id` int(11) NOT NULL AUTO_INCREMENT, 
+  		`Name` varchar(25) DEFAULT NULL, 
+  		`LastName` varchar(45) DEFAULT NULL, 
+  		PRIMARY KEY (`Id`) 
+	)
+
+	`VideoGenre` ( 
+  		`Id` int(11) NOT NULL, 
+  		`Id_Genres` int(11) NOT NULL
+	) 
+
+	`Comments` ( 
+		  `Id` int(11) NOT NULL AUTO_INCREMENT, 
+  		`Wording` varchar(255) DEFAULT NULL, 
+  		`Id_Video` int(11) DEFAULT NULL, 
+  		`Poster` varchar(45) DEFAULT NULL
+	)
+
+	`Director` ( 
+  		`Id` int(11) NOT NULL AUTO_INCREMENT, 
+  		`Name` varchar(100) NOT NULL, 
+  		`Lastname` varchar(100) NOT NULL
+	)
+
+	`Genres` ( 
+	 	`Id` int(11) NOT NULL AUTO_INCREMENT, 
+  		`Wording` varchar(25) DEFAULT NULL
+	)
+
+	`Pictures` ( 
+  		`Id` int(11) NOT NULL AUTO_INCREMENT, 
+  		`Link` varchar(255) DEFAULT NULL, 
+ 		`Slide` tinyint(1) DEFAULT NULL, 
+  		`Id_Video` int(11) DEFAULT NULL
+	)
+
+	`Play` ( 
+  		`Id` int(11) NOT NULL, 
+  		`Id_Video` int(11) NOT NULL
+	)
+ 
+	`Types` ( 
+  		`Id` int(11) NOT NULL AUTO_INCREMENT, 
+  		`Wording` varchar(25) DEFAULT NULL
+	)
+
+) 
+
+db.products.update(
+   { sku: "abc123" },
+   { $inc: { quantity: -2, "metrics.orders": 1 } }
+)
+
+{_id: new ObjectId(req.param('VideoId'))}
+         ,{$set: {link: "/videos/"+req.param('FileName')}}
+
+db.inventory.find( { type: 'food' }, { item: 1, qty: 1 } )
+
+db.products.update(
+   { sku: "unknown" },
+   { $unset: { quantity: "", instock: "" } }
+)

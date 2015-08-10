@@ -1,0 +1,63 @@
+
+.spacer{clear:both;}
+.inner{width:850px;margin:0 auto;text-align:left;position:relative;}
+
+#sitenav{background:#333;text-align:left;}
+#sitenav .inner *{display:inline-block;margin:0 10px 0 0;padding:8px 15px;color:#fff;}
+#sitenav .selected{background:#72a024;}
+
+
+
+
+
+table{width:100%;border:1px solid #eee;border-collapse:collapse;}
+table th,
+table td{padding:5px;border:1px solid #eee;}
+table th{font-weight:bold;background:#ddd;}
+table td{}
+
+.noscript{margin:10px 0 15px;padding:10px;color:#fff;background:red;}
+/*.noscript .codex-sitename{background:none;}*/
+
+/*---------------------------------
+ *  Code formatting
+ *---------------------------------*/
+.codex-details{display:none;}
+.codex-pre{margin:10px 0 15px;padding:10px;overflow:auto;overflow-y:hidden;color:#333;border-left:3px solid #6ce26c;background:#F2F1F1;}
+.codex-block{margin:0 0 15px;}
+.codex-notes{margin:10px 0 15px;padding:10px;color:#000;border:1px solid #ccc;background:#ffffec;}
+.codex-notes h4{margin-top:0;}
+.codex-setting{color:#0857b8;font-weight:bold;font-style:normal;}
+.codex-value{color:green;font-weight:bold;font-style:normal;}
+.codex-classname{color:#990066;font-style:normal;}
+.codex-filename{color:#af5f00;font-style:normal;}
+.codex-comment{color:green;font-style:normal;}
+.codex-togglebtn{display:block;}
+.codex-sitename{/*color:#000;background:#F2F1F1;*/}
+.codex-lowlight{color:#999;}
+.codex-error{color:red;}
+.codex-depreciated{color:red;padding:0 0 0 5px;}
+
+/*---------------------------------
+ *  Settings list
+ *---------------------------------*/
+.setting-type{color:#666;}
+.setting-value em{color:#005b7d;font-style:normal;}
+
+/*---------------------------------
+ *  Super TOC!
+ *---------------------------------*/
+.supertoc{position:absolute;top:0;right:0;width:200px;margin:0 0 30px;padding:0 10px 10px;text-align:left;background:#eee;-moz-border-radius:7px;-webkit-border-radius:7px;border:1px solid #ddd;}
+.supertoc ul{list-style:disc outside none;}
+.supertoc ul li{padding:0px;}
+.supertoc ul .toc-h1{margin:10px 0 3px;list-style:none;}
+.supertoc ul .toc-h2{list-style:circle;margin:7px 0 0 20px;}
+.supertoc ul .toc-h3{list-style:square;margin:0 0 0 35px;}
+.supertoc ul a:hover{text-decoration:underline;}
+
+/*---------------------------------
+ *  UItoTop jQuery Plugin 1.1
+ *  http://www.mattvarone.com/web-design/uitotop-jquery-plugin/
+ *---------------------------------*/
+#toTop{display:none;text-decoration:none;position:fixed;bottom:10px;right:10px;overflow:hidden;width:151px;height:51px;border:none;text-indent:-999px;background:transparent url("../images/ui.totop.png") no-repeat left top;}
+#toTopHover{width:51px;height:51px;display:block;overflow:hidden;float:left;cursor:pointer;opacity:0;-moz-opacity:0;filter:alpha(opacity=0);background:transparent url("../images/ui.totop.png") no-repeat left -51px;}

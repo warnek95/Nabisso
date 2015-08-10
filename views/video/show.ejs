@@ -1,0 +1,177 @@
+<br /> <br />	<br /> <br />
+
+<div ng-controller="TchatController" ng-init="room = '<%= video.title %>';group= ['<%= session.User.pseudo %>']">
+   <div class="container " >
+      <div class="row ">
+       <div class="col-lg-7">
+		  <div class="video" >
+			<div >	<h2> <%= video.title %> </h2> </div> 
+			<% if(hasFavoured.length <= 0) { %>
+			<form action="/user/addFav" method="post">
+				<input type="hidden" name="VideoId" value="<%= video._id %>">
+				<input type="hidden" name="PictureLink" value="<%= video.pictures[0].link %>">
+				<input type="hidden" name="Title" value="<%= video.title %>">
+				<button type="submit" class="btn btn-default">Ajouter aux favoris</button>
+			</form>
+			<% } else { %>
+				
+			<% } %>
+				</br>
+				<div class="flowplayer opm" >
+      <video>
+         <source type="video/mp4" src="<%= video.link%>">
+      </video>
+   </div>
+  
+
+               <div class="form-group col-lg-12">
+    <div class="col-md-4 col-md-offset-4" style="color:red;">Votez!!!</div>
+  </div>
+<% if(Number.isNaN(video.average) == false && hasVoted.length > 0) { %>
+   <input id="input-2" class="rating" data-showCaption="false" data-min="0" data-max="5" data-step="0.1" data-readonly="true" value="<%= video.average %>" data-size="xs">
+
+              <% } else if(Number.isNaN(video.average) == true && hasVoted.length > 0) { %>
+   <input id="input-2" class="rating" data-min="0" data-showCaption="false" data-max="5" data-step="0.1" data-readonly="true" value="" data-size="xs">
+
+              <% } else { %>
+	<div class=" col-lg-12 untop unleft">
+		<form action="/video/vote" method="post" name="vote">
+		    <input type="hidden" name="VideoId" value="<%= video._id %>">
+		    	<div class="col-md-offset-1 col-md-8">
+				    <input class="star star-5" id="star-5" ng-model="Star" type="radio" name="star" value="5" required/>
+				    <label class="star star-5" for="star-5"></label>
+				    <input class="star star-4" id="star-4" ng-model="Star" type="radio" name="star" value="4" required/>
+				    <label class="star star-4" for="star-4"></label>
+				    <input class="star star-3" id="star-3" ng-model="Star" type="radio" name="star" value="3" required/>
+				    <label class="star star-3" for="star-3"></label>
+				    <input class="star star-2" id="star-2" ng-model="Star" type="radio" name="star" value="2" required/>
+				    <label class="star star-2" for="star-2"></label>
+				    <input class="star star-1" id="star-1" ng-model="Star" type="radio" name="star" value="1" required/>
+				    <label class="star star-1" for="star-1"></label>
+				</div>
+				<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+				<div class="row untop unleft2">
+				    <div class="col-lg-12">
+					   <div class="col-md-4 col-md-offset-5"><button class="btn btn-default" ng-disabled="vote.$invalid">Valider</button></div>
+					</div>
+				</div>
+		</form>
+</div>
+<% } %>
+
+
+		  </div>		
+	     </div>
+	     <div class="col-lg-5">
+			<div class="chat">
+				<!-- <button type="button" class="btn btn-danger" data-container="body" data-toggle="popover" data-placement="bottom" data-content='<div class="row "><form ng-submit="addMemberForm()"><input ng-model="member.pseudo" placeholder="Pseudo" type="text"/><button type="submit" class="btn btn-danger">Ajouter</button></form></div>' data-original-title="Ajouter un membre" data-html='true'>
+				  Ajouter un membre
+				</button> -->
+
+				<div class="row right3">Ajouter un utilisateur à la discussion.<br/><br/><form ng-submit="addMemberForm()"><input ng-model="member.pseudo" placeholder="Pseudo" type="text"/><button type="submit" class="btn btn-danger">Ajouter</button></form></div>
+				<br />
+				<div class="barre2"></div>
+				<div class="chatheader">
+					Chat 
+				</div>
+				<div class="barre"></div>
+				<div id="example"></div>
+			</div>
+		</div>
+	   <!--  <div class="col-lg-5">
+	    		<div class="chat">
+	    			<div class="chatheader">
+	    					Chat ( <%= video.title %> )
+
+	    			</div>
+	    			<div class="barre">
+	    				
+	    			</div>
+	    			<div class="chatroom">
+	    						Bienvenue dans le chat...
+	    			</div>
+	    			<div class="barre2">
+	    				
+	    			</div>
+
+	    			<div class="answer">
+ 							 <input type="text" placeholder="Envoyer un mesage" class="form-control input"  />
+ 							 <button type="button" class="btn btn-primary btn-sm buttonchat">Discussion Instantanée</button>
+ 							 <div class="logos">
+ 					<a href="" id="popover"><span class=" glyphicon glyphicon-align-left"></span> </a>
+						<div id="popover-head" class="hide">
+						  Ajouter un membre
+						</div>
+						<div id="popover-content" class="hide">
+							<input type="text"/>
+							  <button type="button" class="btn btn-danger">Ajouter</button>
+
+										
+						</div>
+ 					<span class=" glyphicon glyphicon-asterisk"></span>
+					</div>
+	    			</div>
+	    		</div>
+
+	    </div>
+	</div>
+	</div> -->
+
+
+
+	    <div class="container">		
+		    <div id="imagevideo" >
+				<div id="affiche"> <img src="<%= video.pictures[0].link %>"/> </div>
+				<div id="description"><b>  Description : <%= video.description %></b> </div>
+				<div id="topserie"><b>  Films similaires : </b></b> </div>
+			</div>
+		</div>
+		<section class="round-border commentaire2">
+			<div class="right2">
+				<button href="#collapse1" class="nav-toggle btn btn-default">Regarder les commentaires</button>
+			</div>
+			<br />
+			<div id="collapse1" style="display:none">
+											<div class="container"><div class="postcommentaire">
+				 					<div class="postcommentaire2"> 
+				 					<div class="row">
+				 					<div class="col-lg-12">
+				 						<form action="/video/addComment" method="post">
+				 							<input type="hidden" name="VideoId" value="<%= video._id %>">
+				 					 <textarea rows="3" cols="100" name="Wording" placeholder="Tapez votre commentaire ici" class="leftSpacer"></textarea>
+				 					 <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+				 					  <input type="submit" value="Envoyer" class="btn btn-primary btn-sm">
+				 					 </form>
+									 </div>
+									</div>
+									</div>
+								</div>
+							<div class="commentaire">
+								<% _.each(video.comments, function(comment) { %>
+              <% if (comment) { %>
+              <div class="barre4">
+                <div class="fondcommentaire">
+              	<b class="blue">  <%= comment.poster %></b> : 
+              	 <%= comment.wording %>  <br/><br/><br/>
+              		</div>
+              	</div>
+              <% } %>
+        <% }) %>
+										<!--
+								<div class="membrecommentaire">
+															Membre connectés
+									<div class="membrecommentairevue">
+									</div>
+								</div>-->
+							</div>
+						</div>	
+
+					
+			</div>
+		</section>
+</div>
+		<script src="/js/dependencies/jquery.min.js"></script>
+       <script type="text/javascript"> 
+    $('head').append('<link rel="stylesheet" type="text/css" href="/styles2/style4.css">');
+  </script>
+</div>
